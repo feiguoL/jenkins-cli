@@ -159,7 +159,7 @@ gen-data:
 	cd app/i18n && go-bindata -o bindata.go -pkg i18n jcli/zh_CN/LC_MESSAGES/
 
 image:
-	docker build . -t jenkinszh/$(NAME)
+	docker build --build-arg http_proxy=http://10.20.9.184:7890 --build-arg https_proxy=http://10.20.9.184:7890 . -t jenkinszh/$(NAME)
 
 setup-env-centos:
 	yum install make golang -y
